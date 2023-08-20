@@ -33,3 +33,4 @@ there are 6 folder here
 - the driver class is here
 
 
+P.S. Everyone have to design their own subsystem with respect to their own respective **ADT**, i.e. Tutor Management and Student Management should have different variation of ADT(in terms of ADT design and implementation). We are not allowed to share one ADT, and import java.util.* is banned(?), we have to import the linked list instead.
