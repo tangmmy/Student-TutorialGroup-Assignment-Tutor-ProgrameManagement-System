@@ -1,11 +1,11 @@
 
 package Control;
 
-import adt.*;
-import entity.*;
+import Adt.*;
+import Entity.*;
 import java.util.Scanner;
-import boundary.*;
-import dao.*;
+import Boundary.*;
+import Database.*;
 /**
  *
  * @author Li Hao
