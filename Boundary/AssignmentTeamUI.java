@@ -2,19 +2,19 @@ package Boundary;
 
 //@author YeohYaoWen
 
-import Control.AssignmentTeamControl;
+import Control.AssignmentTeamControl; 
 import Entity.Student;
 import Entity.AssignmentTeam;
 
 import java.util.Scanner;
 
 public class AssignmentTeamUI {
-    private final AssignmentTeamControl control;
-    private final Scanner scanner;
+    private final AssignmentTeamControl control;  // Declaration of AssignmentTeamControl object
+    private final Scanner scanner;  
 
     public AssignmentTeamUI() {
-        this.control = new AssignmentTeamControl();
-        this.scanner = new Scanner(System.in);
+        this.control = new AssignmentTeamControl();  // Creation of a new AssignmentTeamControl object
+        this.scanner = new Scanner(System.in);  
     }
 
     public void displayMenu() {
@@ -32,7 +32,7 @@ public class AssignmentTeamUI {
 
             System.out.print("\nEnter your choice: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline left-over
+            scanner.nextLine(); 
 
             switch (choice) {
                 case 1:
@@ -45,7 +45,7 @@ public class AssignmentTeamUI {
                     amendAssignmentTeamDetails();
                     break;
                 case 4:
-                    control.listAssignmentTeams();
+                    control.listAssignmentTeams();  // Invoking the listAssignmentTeams method
                     break;
                 case 5:
                     addStudentToTeam();
@@ -57,7 +57,7 @@ public class AssignmentTeamUI {
                     listStudentsInTeam();
                     break;
                 case 8:
-                    control.reportTeamsWithAllStudents();
+                    control.reportTeamsWithAllStudents();  // Invoking the reportTeamsWithAllStudents method
                     break;
                 case 9:
                     System.out.println("\nExiting...");
@@ -75,7 +75,7 @@ public class AssignmentTeamUI {
         System.out.print("Enter team name: ");
         String teamName = scanner.nextLine();
 
-        control.createAssignmentTeam(assignmentId, teamName);
+        control.createAssignmentTeam(assignmentId, teamName);  // Invoking the createAssignmentTeam method
         System.out.println("\nTeam created successfully.");
     }
 
@@ -83,7 +83,7 @@ public class AssignmentTeamUI {
         System.out.print("Enter assignment ID of the team to remove: ");
         String assignmentId = scanner.nextLine();
 
-        if (control.removeAssignmentTeam(assignmentId)) {
+        if (control.removeAssignmentTeam(assignmentId)) {  // Invoking the removeAssignmentTeam method
             System.out.println("\nTeam removed successfully.");
         } else {
             System.out.println("\nTeam not found.");
@@ -97,7 +97,7 @@ public class AssignmentTeamUI {
         System.out.print("Enter new team name: ");
         String newTeamName = scanner.nextLine();
 
-        if (control.amendAssignmentTeamDetails(assignmentId, newTeamName)) {
+        if (control.amendAssignmentTeamDetails(assignmentId, newTeamName)) {  // Invoking the amendAssignmentTeamDetails method
             System.out.println("\nTeam details amended successfully.");
         } else {
             System.out.println("\nTeam not found.");
@@ -111,7 +111,7 @@ public class AssignmentTeamUI {
         System.out.print("Enter student ID: ");
         String studentId = scanner.nextLine();
 
-        if (control.addStudentToTeam(assignmentId, studentId)) {
+        if (control.addStudentToTeam(assignmentId, studentId)) {  // Invoking the addStudentToTeam method
             System.out.println("\nStudent added successfully.");
         } else {
             System.out.println("\nTeam not found or student already exists.");
@@ -122,7 +122,7 @@ public class AssignmentTeamUI {
         System.out.print("Enter assignment ID: ");
         String assignmentId = scanner.nextLine();
 
-        String[] studentIdsToRemove = new String[100]; // Assuming a maximum of 100 student IDs for simplicity.
+        String[] studentIdsToRemove = new String[100]; // Assume 100 Student
         int count = 0;
 
         while (count < studentIdsToRemove.length) {
@@ -140,7 +140,7 @@ public class AssignmentTeamUI {
             actualIdsToRemove[i] = studentIdsToRemove[i];
         }
 
-        if (control.removeStudentsFromTeam(assignmentId, actualIdsToRemove)) {
+        if (control.removeStudentsFromTeam(assignmentId, actualIdsToRemove)) {  // Invoking the removeStudentsFromTeam method
             System.out.println("\nStudents removed successfully.");
         } else {
             System.out.println("\nAn error occurred or team not found.");
@@ -151,7 +151,7 @@ public class AssignmentTeamUI {
         System.out.print("Enter assignment ID: ");
         String assignmentId = scanner.nextLine();
 
-        control.listStudentsInTeam(assignmentId);
+        control.listStudentsInTeam(assignmentId);  // Invoking the listStudentsInTeam method
     }
 
     public static void main(String[] args) {
