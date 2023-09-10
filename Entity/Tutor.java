@@ -17,8 +17,6 @@ public class Tutor implements Comparable<Tutor>, Serializable{
     private String tutorName;
     private String qualification;
     private String tutorPhone;
-    
-    //private static int numTutor = 0;
 
     public Tutor() {
     }
@@ -28,12 +26,6 @@ public class Tutor implements Comparable<Tutor>, Serializable{
     }
    
     public Tutor(int tutorType, String tutorName, String tutorPhone, String qualification) {
-        /*
-        numTutor++;
-        int id = 1000 + numTutor;       
-        this.tutorID = "23TARC" + Integer.toString(id);
-        */
-             
         this.tutorID = generateRandomTutorID();
         
         if(tutorType == 1){
@@ -88,14 +80,7 @@ public class Tutor implements Comparable<Tutor>, Serializable{
         this.tutorPhone = tutorPhone;
     }
     
-     private String generateRandomTutorID() {      
-         /*  
-        Random random = new Random();
-        int randomNumber = random.nextInt(100); // Generate a random number between 0 and 99
-        String formattedNumber = String.format("%02d", randomNumber); // Ensure 2-digit formatting
-        return "23TARC00" + formattedNumber;
-          */
-                 
+     private String generateRandomTutorID() {               
         int numericPart = (int) (Math.random() * 100); // Generates a random number between 0 and 99
         String formattedNumber = String.format("%02d", numericPart); // Ensure 2-digit formatting
 
