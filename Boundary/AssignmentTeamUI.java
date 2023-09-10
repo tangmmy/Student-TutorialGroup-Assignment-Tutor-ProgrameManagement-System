@@ -154,8 +154,5 @@ public class AssignmentTeamUI {
         control.listStudentsInTeam(assignmentId);  // Invoking the listStudentsInTeam method
     }
 
-    public static void main(String[] args) {
-        AssignmentTeamUI boundary = new AssignmentTeamUI();
-        boundary.displayMenu();
-    }
+    
 }
