@@ -8,14 +8,35 @@ package Entity;
  *
  * @author tangm
  */
-public class Student {
+import java.util.Comparator;
+public class Student implements Comparable<Student> {
     private String Name;
     private String studId;
-
+    private String groupName;
+    public Student(String studId){
+        this.Name=null;
+        this.studId=studId;
+        this.groupName=null;
+    }
     public Student(String Name, String studId) {
         this.Name = Name;
         this.studId = studId;
     }
+
+    public Student(String Name, String studId, String groupName) {
+        this.Name = Name;
+        this.studId = studId;
+        this.groupName = groupName;
+    }
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+    
 
     public String getName() {
         return Name;
@@ -41,7 +62,11 @@ public class Student {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student that = (Student) o;
-        return Name.equals(that.Name) && studId.equals(that.studId);
+        return studId.equals(that.studId);
+    }
+    @Override
+    public int compareTo(Student A){
+        return (this.studId).compareTo(A.studId);
     }
     
 }
