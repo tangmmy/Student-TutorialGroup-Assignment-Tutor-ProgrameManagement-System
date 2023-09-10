@@ -5,7 +5,6 @@ package ADT;
  * @author Li Hao
  * @param <T>
  */
-
 public class lihaoLinkedList<T extends Comparable<T>> implements lihaoListInterface<T> {    
     Node firstNode;
     Node lastNode;
