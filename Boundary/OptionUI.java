@@ -40,13 +40,9 @@ public class OptionUI extends UI{
         if(this.choice==1){
             System.out.print("\nEnter the tutorial group name (Ex:RSD1G1): ");
             Name=scan.next();
-            TutorialManageStudentUI tmui=new TutorialManageStudentUI(Name);
+                TutorialManageStudentUI tmui=new TutorialManageStudentUI(Name);
             
             tmui.doSomething();
-        }
-        else if(this.choice==2){
-            AssignmentTeamUI atui=new AssignmentTeamUI();
-            atui.displayMenu();
         }
         else{
             System.out.print("Not done yet!\n");

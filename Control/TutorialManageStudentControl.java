@@ -8,34 +8,35 @@ package Control;
  *
  * @author tangm
  */
+import ADT.ListIterator;
+import ADT.LinkedList;
 import Entity.Student;
-import Entity.TutorialGroup;
 import ADT.*;
 import java.util.Scanner;
 import Database.Database;
 public class TutorialManageStudentControl {
-    private TutorialGroup tutGrp;
+    private LinkedList<Student> tutorialGroup;
     private String groupName;
     
    
-    public TutorialManageStudentControl(TutorialGroup tutGrp) {
-        this.tutGrp = tutGrp;
+    public TutorialManageStudentControl(LinkedList<Student> tutorialGroup) {
+        this.tutorialGroup = tutorialGroup;
     }
 
-    public TutorialManageStudentControl(TutorialGroup tutGrp,String groupName) {
+    public TutorialManageStudentControl(LinkedList<Student> tutorialGroup,String groupName) {
         
         
         this.groupName = groupName;
         Database database=new Database();
-        database.getStudentInTutorialGroup(groupName, tutGrp);
+        database.getStudentInTutorialGroup(groupName, tutorialGroup);
     }
 
-    public TutorialGroup getTutorialGroup() {
-        return tutGrp;
+    public LinkedList<Student> getTutorialGroup() {
+        return tutorialGroup;
     }
 
-    public void setTutorialGroup(TutorialGroup tutGrp) {
-        this.tutGrp = tutGrp;
+    public void setTutorialGroup(LinkedList<Student> tutorialGroup) {
+        this.tutorialGroup = tutorialGroup;
     }
 
     public String getGroupName() {
@@ -52,22 +53,24 @@ public class TutorialManageStudentControl {
     
     public void addStudent(String Name,String Id){
         Student S=new Student(Name,Id);
-        tutGrp.addStudent(S);
+        tutorialGroup.addFirst(S);
     }
     public void deleteStudent(String Name,String Id){
         Student S=new Student(Name,Id);
-        tutGrp.removeStudent(S);
+        tutorialGroup.remove(S);
     }
-    public Student findStudent(String Id){
-        Student S;
-        S=tutGrp.findStudent(Id);
+    public Student findStudent(Student S){
         return S;
     }
     public void updateStudent(Student S){
         
     }
     public void printGroup(){
-        this.tutGrp.listAllStudent();
+        ListIterator<Student> x=tutorialGroup.listIterator();
+        while(x.hasNext()){
+            Student element=x.next();
+            System.out.print(element.toString()+" ");
+        }
     }
     
 }

@@ -6,9 +6,12 @@ package ADT;
 
 /**
  *
- * @author tangm
+ * @author acerc
  */
-import java.util.*;
+
+import java.util.NoSuchElementException;
+import java.util.Objects;
+
 public class LinkedList<E> {
     public LinkedList(){first=null;}
     public E getFirst(){
@@ -31,7 +34,6 @@ public class LinkedList<E> {
         Node newNode=this.first;
         //System.out.print(element.toString() + " "+ (newNode.data).toString());
         if(Objects.equals( newNode.data,element)) {
-            System.out.print("remove first\n");
             removeFirst();
         }
         else{
@@ -44,18 +46,12 @@ public class LinkedList<E> {
                 }
                 //System.out.print(newNode.next + " "+newNode.next.next);
                 newNode=newNode.next;
-                
             }
         }
-        
-        
-        
     }
     public ListIterator<E> listIterator(){
         return new LinkedListIterator();
     }
-    
-    
     private Node first;
     private class Node{
         public E data;
@@ -82,7 +78,6 @@ public class LinkedList<E> {
             else position=position.next;
             return position.data;
             
-        
         }
         @Override
         public void add(E element){
@@ -106,8 +101,7 @@ public class LinkedList<E> {
             if(position==first) removeFirst();
             else previous.next=position.next;
             position=previous;
-            
-            
+              
         }
         @Override
         public void set(E element){

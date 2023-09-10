@@ -8,10 +8,9 @@ package Boundary;
  *
  * @author acerc
  */
-public class UI {
-    protected String pageName;
-    void printPageName(){
-        System.out.print(this.pageName +"/n");
-        
+public class test {
+    public static void main(String[] args) {
+        ProgrammeUI boundary = new ProgrammeUI();
+        boundary.displayPMUI();
     }
 }
