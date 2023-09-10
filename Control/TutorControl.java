@@ -18,7 +18,7 @@ public class TutorControl {
      //list all tutor
      public static void listAllTutor(lihaoListInterface<Tutor> tutorList){                            
         System.out.println("\n=====================================================================================================");
-        System.out.println("                 All Tutor Details (Asc - Tutor ID)   "); 
+        System.out.println("                 All Tutor Details    "); 
         System.out.println("======================================================================================================");
         System.out.println("|   ID         | NAME                | Phone             | Qualification  | Tutor Type      |");
         System.out.println("-----------------------------------------------------------------------------------------------------------");
