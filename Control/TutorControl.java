@@ -626,7 +626,7 @@ public class TutorControl {
          int option = 0;   
          do{
               System.out.println("\n======================================================");
-              System.out.println("      Generate Reort   ");
+              System.out.println("      Generate Report   ");
               System.out.println("=========================================================");
               System.out.println(" 1. Tutor Report (Asc - Tutor ID)");
               System.out.println(" 2. Tutor Report (Desc - Tutor ID)");
@@ -641,7 +641,7 @@ public class TutorControl {
                     }
                       tutorSortAsc.selectionSortAsc();                
                         System.out.println("\n=====================================================================================================");
-                        System.out.println("                 All Tutor Details (Asc - Tutor ID)   "); 
+                        System.out.println("                 Tutor Report (Asc - Tutor ID)   "); 
                         System.out.println("======================================================================================================");
                         System.out.println("|   ID         | NAME                | Phone             | Qualification  | Tutor Type      |");
                         System.out.println("-----------------------------------------------------------------------------------------------------------");                  
@@ -658,7 +658,7 @@ public class TutorControl {
                     }
                       tutorSortDesc.selectionSortDesc();      
                       System.out.println("\n=====================================================================================================");
-                      System.out.println("                      All Tutor Details (Desc - Tutor ID)   "); 
+                      System.out.println("                     Tutor Report (Desc - Tutor ID)   "); 
                       System.out.println("======================================================================================================");
                       System.out.println("|   ID         | NAME                | Phone             | Qualification  | Tutor Type      |");
                       System.out.println("-----------------------------------------------------------------------------------------------------------");
