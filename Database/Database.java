@@ -71,10 +71,10 @@ public class Database {
 
         return null;
     }
-    public void getStudentInTutorialGroup(String groupName,LinkedList<Student> tutorialGroup){
+    public void getStudentInTutorialGroup(String groupName,TutorialGroup tutGrp){
         String s_studInfo;
         String [] studInfo;
-        
+        BinarySearchTree<Student> BST =new BinarySearchTree<Student>();
         //LinkedList<Staff> staffInfo=new LinkedList<Staff>();
         while(student_scanner.hasNextLine()){
             s_studInfo = student_scanner.nextLine();
@@ -83,11 +83,13 @@ public class Database {
             // <uid>,<pwd>,<name>
             studInfo = s_studInfo.split(",");
             if (groupName.equals(studInfo[2])){
-                Student S=new Student(studInfo[0],studInfo[1]);
-                tutorialGroup.addFirst(S);
+                Student S=new Student(studInfo[0],studInfo[1],studInfo[2]);
+                BST.insert(S);
             }
 
         }
+        tutGrp.setGroupName(groupName);
+        tutGrp.setTutorialGroup(BST);
 
         
     }
