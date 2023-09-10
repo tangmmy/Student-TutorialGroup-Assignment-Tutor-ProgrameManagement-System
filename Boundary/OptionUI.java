@@ -44,6 +44,10 @@ public class OptionUI extends UI{
             
             tmui.doSomething();
         }
+        else if(this.choice==2){
+            AssignmentTeamUI atui=new AssignmentTeamUI();
+            atui.displayMenu();
+        }
         else{
             System.out.print("Not done yet!\n");
         }
