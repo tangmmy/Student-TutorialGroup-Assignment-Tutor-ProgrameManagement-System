@@ -9,12 +9,12 @@ package Boundary;
  * @author tangm
  */
 import Entity.Student;
-import ADT.*;
+import Entity.TutorialGroup;
 import Control.TutorialManageStudentControl;
 import java.util.Scanner;
 
 public class TutorialManageStudentUI {
-    private LinkedList<Student> tutorialGroup;
+    private TutorialGroup tutorialGroup;
     private String groupName;
     private int choice;
     public TutorialManageStudentUI() {
@@ -22,7 +22,7 @@ public class TutorialManageStudentUI {
     }
     
     public TutorialManageStudentUI(String groupName) {
-        this.tutorialGroup = new LinkedList<Student>();
+        this.tutorialGroup = new TutorialGroup();
         this.groupName = groupName;
         this.choice=0;
         TutorialManageStudentControl tmsc=new TutorialManageStudentControl(tutorialGroup,groupName); 
@@ -83,7 +83,11 @@ public class TutorialManageStudentUI {
                     
                 
                 case 3://find student
-                    System.out.print("\nNot done yet!\n");
+                    System.out.print("\nEnter id:");
+                    id=scan.nextLine();
+                    Student S=tmsc.findStudent(id);
+                    manageStud(S);
+                    
                     break;
                 case 4:// update student
                     System.out.print("\nNot done yet!\n");
@@ -99,5 +103,18 @@ public class TutorialManageStudentUI {
             
             
         }   
-    }   
+    }
+    void manageStud(Student S){
+        if(S==null){
+            System.out.print("student not found!\n");
+            return;
+        }
+        System.out.print("Now you are managing student ");
+        System.out.print("Name : "+S.getName()+"\n");
+        System.out.print("Id : "+S.getStudId()+"\n");
+        System.out.print("Tuorial Group Name: "+S.getGroupName()+"\n");
+        
+        
+        return;
+    }
 }
