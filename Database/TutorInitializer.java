@@ -1,8 +1,8 @@
 
-package dao;
+package Database;
 
-import adt.*;
-import entity.*;
+import Adt.*;
+import Entity.*;
 /**
  *
  * @author Li Hao
