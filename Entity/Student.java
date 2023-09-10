@@ -8,7 +8,7 @@ package Entity;
  *
  * @author tangm
  */
-import java.util.Comparator;
+import java.util.Comparator; //Comparable doesnt use Comparator so this import is actually useless
 public class Student implements Comparable<Student> {
     private String Name;
     private String studId;
