@@ -100,7 +100,7 @@ public class lihaoLinkedList<T extends Comparable<T>> implements lihaoListInterf
                 Node findNode = firstNode;
 
                 int counter = 1;
-                while (counter < givenPosition) {   //if want to find first node , it won't run
+                while (counter < givenPosition) {  
                     findNode = findNode.next;
                     counter++;
                 }
