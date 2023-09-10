@@ -9,32 +9,33 @@ package Control;
  * @author tangm
  */
 import Entity.Student;
+import Entity.TutorialGroup;
 import ADT.*;
 import java.util.Scanner;
 import Database.Database;
 public class TutorialManageStudentControl {
-    private LinkedList<Student> tutorialGroup;
+    private TutorialGroup tutGrp;
     private String groupName;
     
    
-    public TutorialManageStudentControl(LinkedList<Student> tutorialGroup) {
-        this.tutorialGroup = tutorialGroup;
+    public TutorialManageStudentControl(TutorialGroup tutGrp) {
+        this.tutGrp = tutGrp;
     }
 
-    public TutorialManageStudentControl(LinkedList<Student> tutorialGroup,String groupName) {
+    public TutorialManageStudentControl(TutorialGroup tutGrp,String groupName) {
         
         
         this.groupName = groupName;
         Database database=new Database();
-        database.getStudentInTutorialGroup(groupName, tutorialGroup);
+        database.getStudentInTutorialGroup(groupName, tutGrp);
     }
 
-    public LinkedList<Student> getTutorialGroup() {
-        return tutorialGroup;
+    public TutorialGroup getTutorialGroup() {
+        return tutGrp;
     }
 
-    public void setTutorialGroup(LinkedList<Student> tutorialGroup) {
-        this.tutorialGroup = tutorialGroup;
+    public void setTutorialGroup(TutorialGroup tutGrp) {
+        this.tutGrp = tutGrp;
     }
 
     public String getGroupName() {
@@ -51,24 +52,22 @@ public class TutorialManageStudentControl {
     
     public void addStudent(String Name,String Id){
         Student S=new Student(Name,Id);
-        tutorialGroup.addFirst(S);
+        tutGrp.addStudent(S);
     }
     public void deleteStudent(String Name,String Id){
         Student S=new Student(Name,Id);
-        tutorialGroup.remove(S);
+        tutGrp.removeStudent(S);
     }
-    public Student findStudent(Student S){
+    public Student findStudent(String Id){
+        Student S;
+        S=tutGrp.findStudent(Id);
         return S;
     }
     public void updateStudent(Student S){
         
     }
     public void printGroup(){
-        ListIterator<Student> x=tutorialGroup.listIterator();
-        while(x.hasNext()){
-            Student element=x.next();
-            System.out.print(element.toString()+" ");
-        }
+        this.tutGrp.listAllStudent();
     }
     
 }
