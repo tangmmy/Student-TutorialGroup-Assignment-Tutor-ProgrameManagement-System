@@ -7,33 +7,33 @@ import ADT.DynamicArray;
 public class AssignmentTeam implements Comparable<AssignmentTeam> {
     private String assignmentId;
     private String teamName;
-    private DynamicArray<Student> students;
+    private DynamicArray<Student> students;  // Declaration of DynamicArray of Student objects
 
-    // Constructor to initialize an AssignmentTeam with an assignmentId and teamName
+  
     public AssignmentTeam(String assignmentId, String teamName) {
         this.assignmentId = assignmentId;
         this.teamName = teamName;
-        this.students = new DynamicArray<>();
+        this.students = new DynamicArray<>();  // Creation of a new DynamicArray
     }
 
-    // Getter for assignmentId
+ 
     public String getAssignmentId() {
         return assignmentId;
     }
 
-    // Getter for teamName
+
     public String getTeamName() {
         return teamName;
     }
 
-    // Setter for teamName
+
     public void setTeamName(String teamName) {
         this.teamName = teamName;
     }
 
     // Add a student to the team
     public void addStudent(Student student) {
-        students.add(student);
+        students.add(student);  // Invoking the add method of the students collection ADT
     }
 
     // Check if the team has a student with a given studentId
@@ -50,7 +50,7 @@ public class AssignmentTeam implements Comparable<AssignmentTeam> {
     public boolean removeStudent(String studentId) {
         for (int i = 0; i < students.size(); i++) {
             if (students.get(i).toString().contains(studentId)) {
-                students.remove(i);
+                students.remove(i);  // Invoking the remove method of the students collection ADT
                 return true;
             }
         }
@@ -60,7 +60,7 @@ public class AssignmentTeam implements Comparable<AssignmentTeam> {
     // List all students in the team
     public void listStudents() {
         for (int i = 0; i < students.size(); i++) {
-            Student student = students.get(i);
+            Student student = students.get(i);  // Invoking the get method of the students collection ADT
             System.out.println(student);
         }
     }
@@ -70,7 +70,7 @@ public class AssignmentTeam implements Comparable<AssignmentTeam> {
         return students;
     }
 
-    // Override toString method to provide a string representation of the AssignmentTeam
+   
     @Override
     public String toString() {
         return "Assignment ID: " + assignmentId + ", Team Name: " + teamName;
