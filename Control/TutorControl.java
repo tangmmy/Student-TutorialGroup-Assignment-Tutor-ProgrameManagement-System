@@ -53,7 +53,7 @@ public class TutorControl {
                 tutorType = scanner.nextInt();
                 if (tutorType != 1 && tutorType != 2){
                     System.out.println("Please only select 1 or 2 ");
-                    scanner.nextLine();
+                    scanner.nextInt();
                 }            
             }
             catch(Exception ex){
@@ -65,6 +65,7 @@ public class TutorControl {
         //add tutor name
         do{
             System.out.print("\nEnter tutor name: ");
+            scanner.nextLine();
             name = scanner.nextLine();
             for(int i =0; i<name.length(); i++){
                 if(!Character.isLetter(name.charAt(i))){
