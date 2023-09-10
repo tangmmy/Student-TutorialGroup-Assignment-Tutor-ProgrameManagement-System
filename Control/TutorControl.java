@@ -133,14 +133,12 @@ public class TutorControl {
             System.out.print("\nAre you sure to add tutor into the system? Y(Yes)/N(No)");
             confirmAdd = scanner.next().charAt(0);
             if(Character.toUpperCase(confirmAdd) == 'Y'){                  
-                tutorList.add(new Tutor(tutorType,name,phone, qualification));      
-                System.out.println("##New Tutor is added into the system##");
+                tutorList.add(new Tutor(tutorType,name,phone, qualification));          
                 System.out.println("\n--------------------------------------");
                 System.out.println("          Tutor Information      ");
                 System.out.println("---------------------------------------");
                 System.out.println(tutorList.getEntry(tutorList.getNumberOfEntries()));
-                TutorUI.tutorMenu();
-                                   
+                System.out.println("##New Tutor is added into the system##");                   
             }
             else{
                 System.out.println("Please enter Y or N only");              
