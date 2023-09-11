@@ -3,6 +3,7 @@ package Control;
 //@author YeohYaoWen
 
 import ADT.SortedArrayList;  // Importing the SortedArrayList collection ADT
+import Boundary.AssignmentTeamUI;
 import Entity.AssignmentTeam;
 import Entity.Student;
 
@@ -13,7 +14,8 @@ import java.io.IOException;
 public class AssignmentTeamControl {
     private SortedArrayList<AssignmentTeam> assignmentTeams;  // Declaration of a SortedArrayList of AssignmentTeam
 
-    private static final String STUDENTS_FILE_PATH = "./src/Database/student.txt";  // FILE PATH HERE!!!!!
+    private static final String STUDENTS_FILE_PATH = "./src/Database/student.txt";  
+    // FILE PATH HERE!!!!!
 
     public AssignmentTeamControl() {
         this.assignmentTeams = new SortedArrayList<>();  // Creation of a new SortedArrayList
@@ -27,7 +29,8 @@ public class AssignmentTeamControl {
     public boolean removeAssignmentTeam(String assignmentId) {
         AssignmentTeam teamToRemove = findAssignmentTeam(assignmentId);  // Invoking the findAssignmentTeam method
         if (teamToRemove != null) {
-            assignmentTeams.remove(teamToRemove);  // Invoking the remove method of the assignmentTeams collection ADT
+            assignmentTeams.remove(teamToRemove);  
+        // Invoking the remove method of the assignmentTeams collection ADT
             return true;
         }
         return false;
@@ -36,20 +39,23 @@ public class AssignmentTeamControl {
     public boolean amendAssignmentTeamDetails(String assignmentId, String newTeamName) {
         AssignmentTeam teamToAmend = findAssignmentTeam(assignmentId);  // Invoking the findAssignmentTeam method
         if (teamToAmend != null) {
-            teamToAmend.setTeamName(newTeamName);  // Invoking the setTeamName method of the AssignmentTeam object
+            teamToAmend.setTeamName(newTeamName);  
+            // Invoking the setTeamName method of the AssignmentTeam object
             return true;
         }
         return false;
     }
 
     public void listAssignmentTeams() {
-        for (AssignmentTeam team : assignmentTeams) {  // Iterating through the assignmentTeams collection ADT
+        for (AssignmentTeam team : assignmentTeams) {  
+            // Iterating through the assignmentTeams collection ADT
             System.out.println(team);
         }
     }
 
     public AssignmentTeam findAssignmentTeam(String assignmentId) {
-        for (AssignmentTeam team : assignmentTeams) {  // Iterating through the assignmentTeams collection ADT
+        for (AssignmentTeam team : assignmentTeams) {  
+            // Iterating through the assignmentTeams collection ADT
             if (team.getAssignmentId().equals(assignmentId)) {
                 return team;
             }
@@ -59,10 +65,12 @@ public class AssignmentTeamControl {
 
     public boolean addStudentToTeam(String assignmentId, String studentId) {
         AssignmentTeam team = findAssignmentTeam(assignmentId);  // Invoking the findAssignmentTeam method
-        Student student = findStudentInFile(studentId, STUDENTS_FILE_PATH);  // Invoking the findStudentInFile method
+        Student student = findStudentInFile(studentId, STUDENTS_FILE_PATH);       
+        // Invoking the findStudentInFile method
 
         if (team != null && student != null) {
-            if (!team.getStudents().contains(student)) {  // Invoking the contains method of the students collection ADT
+             // Invoking the contains method of the students collection ADT
+            if (!team.getStudents().contains(student)) {  
                 team.addStudent(student);  // Invoking the addStudent method of the team
                 return true; // Student added
             }
@@ -112,7 +120,8 @@ public class AssignmentTeamControl {
                 System.out.println("\tNo students in this team.");
             } else {
                 for (Student student : team.getStudents()) {  // Iterating through the students collection ADT
-                    System.out.println("\t" + student);  // Assumes `Student` class has an appropriate `toString` method.
+                    System.out.println("\t" + student);  
+                    // Assumes `Student` class has an appropriate `toString` method.
                 }
             }
         }
@@ -136,12 +145,18 @@ public class AssignmentTeamControl {
 
                 // Adjusted to match the "name,id,tutorialgroup" format
                 String[] parts = line.split(",");
-                if (parts.length == 3 && parts[1].trim().equals(studentId)) { // Use parts[1] for studentId and parts[0] for studentName
+                if (parts.length == 3 && parts[1].trim().equals(studentId)) { 
+                // Use parts[1] for studentId and parts[0] for studentName
                     return new Student(parts[0].trim(), parts[1].trim());
                 }
             }
         } catch (IOException e) {
         }
         return null;
+    }
+    
+    public static void main(String[] args) {
+        AssignmentTeamUI boundary = new AssignmentTeamUI();
+        boundary.displayMenu();
     }
 }
