@@ -1,2 +1,5 @@
 name,id,tutorialgroup
 Tang Ming Yi,2202397,RSD1G1
+Li Hao,2200271,RSD1G2
+Kian Ho,2200272,RSD1G1
+Yao Wen,2200270,RSD1G1
