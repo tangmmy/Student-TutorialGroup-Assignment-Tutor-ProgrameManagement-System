@@ -6,7 +6,7 @@ package ADT;
 
 /**
  *
- * @author acerc
+ * @author HoKianHou 22WMR04120 RSD2 Group 1
  */
 
 import java.util.NoSuchElementException;

@@ -6,7 +6,7 @@ package ADT;
 
 /**
  *
- * @author tangm
+ * @author HoKianHou 22WMR04120 RSD2 Group 1
  */
 public interface ListIterator<E> {
     E next();

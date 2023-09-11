@@ -6,7 +6,7 @@ package Entity;
 
 /**
  *
- * @author acerc
+ * @author HoKianHou 22WMR04120 RSD2 Group 1
  */
 import ADT.LinkedList;
 import ADT.ListIterator;
@@ -37,6 +37,7 @@ public class Programme implements Comparable<Programme>{
         this.tutGrp = new LinkedList<>();
     }
     
+    //Getter(s) and Setter(s)
     public String getProgName() {
         return progName;
     }
@@ -81,6 +82,7 @@ public class Programme implements Comparable<Programme>{
         return progID.equals(that.progID);
     }
     
+    //compareTo method for validating prompted ProgrammeID and ProgrammeID in Linked List
     @Override
     public int compareTo(Programme A){
         return (this.progID).compareTo(A.progID);
@@ -88,12 +90,15 @@ public class Programme implements Comparable<Programme>{
     
     @Override
     public String toString() {
-        return progID; // + ", " + eduName + " in " + progName;
+        return progID;
     }
     
+    //Adding Tutorial Groups
     public void addTutorialGroup(TutorialGrp tutGrp){
         this.tutGrp.addFirst(tutGrp);
     }
+    
+    //Removing Tutorial Groups
     public void removeTutorialGroup(TutorialGrp tutGrp){
         this.tutGrp.remove(tutGrp);
     }

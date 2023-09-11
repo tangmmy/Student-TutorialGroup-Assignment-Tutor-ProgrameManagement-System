@@ -6,7 +6,7 @@ package Boundary;
 
 /**
  *
- * @author acerc
+ * @author HoKianHou 22WMR04120 RSD2 Group 1
  */
 import Control.ProgrammeControl;
 import Entity.Programme;
@@ -141,7 +141,7 @@ public class ProgrammeUI extends UI{
             System.out.print("\n|                    Ex. RSD                     |");
             System.out.print("\n==================================================");
             System.out.print("\n");
-            System.out.print("Enter ProgID:");
+            System.out.print("Enter ProgID: ");
             String progID = scanner.nextLine();
             
             Programme prog = control.findProg(progID);
@@ -158,45 +158,75 @@ public class ProgrammeUI extends UI{
                 System.out.print("\n==================================================");
                 System.out.print("\n");
             }
+            
+            System.out.print("\nDo you want to find more programme(s)? (Y/N): ");
+            String bool = scanner.nextLine().toUpperCase();
+            if("N".equals(bool)){
+                cont = false;
+            }
+            else if("Y".equals(bool)){
+            }
+            else{
+                System.out.print("\n==ERROR===========================================");
+                System.out.print("\n|                 Invalid input!                 |");
+                System.out.print("\n==================================================");
+                System.out.print("\n");
+            }
         }while(cont!=false);
         
     }
     
     private void amendProg() {
-        System.out.print("\n==================================================");
-        System.out.print("\n|                    Ex. RSD                     |");
-        System.out.print("\n==================================================");
-        System.out.print("\n");
-        System.out.print("Enter ProgID: ");
-        String progID = scanner.nextLine();
-        
-        System.out.print("\n==================================================");
-        System.out.print("\n|     F - Foundation, D - Diploma, R - Degree    |");
-        System.out.print("\n==================================================");
-        System.out.print("\n");
-        System.out.print("Enter EduLvl: ");
-        String eduLvl = scanner.nextLine();
-        System.out.print("\n==================================================");
-        System.out.print("\n|            Ex. Software Development            |");
-        System.out.print("\n==================================================");
-        System.out.print("\n");
-        System.out.print("Enter new ProgName: ");
-        String newProgName = scanner.nextLine();
+        boolean cont = true;
+        do{
+            System.out.print("\n==================================================");
+            System.out.print("\n|                    Ex. RSD                     |");
+            System.out.print("\n==================================================");
+            System.out.print("\n");
+            System.out.print("Enter ProgID: ");
+            String progID = scanner.nextLine();
 
-        boolean amended = control.amendProg(progID, eduLvl, newProgName);
-        
-        if (amended) {
-            System.out.print("\n==INFO============================================");
-            System.out.print("\n|        Programme amended successfully.         |");
+            System.out.print("\n==================================================");
+            System.out.print("\n|     F - Foundation, D - Diploma, R - Degree    |");
             System.out.print("\n==================================================");
             System.out.print("\n");
-        } 
-        else {
-            System.out.print("\n==ERROR===========================================");
-            System.out.print("\n|              Programme not found.              |");
+            System.out.print("Enter EduLvl: ");
+            String eduLvl = scanner.nextLine();
+            System.out.print("\n==================================================");
+            System.out.print("\n|            Ex. Software Development            |");
             System.out.print("\n==================================================");
             System.out.print("\n");
-        }
+            System.out.print("Enter new ProgName: ");
+            String newProgName = scanner.nextLine();
+
+            boolean amended = control.amendProg(progID, eduLvl, newProgName);
+
+            if (amended) {
+                System.out.print("\n==INFO============================================");
+                System.out.print("\n|        Programme amended successfully.         |");
+                System.out.print("\n==================================================");
+                System.out.print("\n");
+            } 
+            else {
+                System.out.print("\n==ERROR===========================================");
+                System.out.print("\n|              Programme not found.              |");
+                System.out.print("\n==================================================");
+                System.out.print("\n");
+            }
+            System.out.print("\nDo you want to amend more programme(s)? (Y/N): ");
+            String bool = scanner.nextLine().toUpperCase();
+            if("N".equals(bool)){
+                cont = false;
+            }
+            else if("Y".equals(bool)){
+            }
+            else{
+                System.out.print("\n==ERROR===========================================");
+                System.out.print("\n|                 Invalid input!                 |");
+                System.out.print("\n==================================================");
+                System.out.print("\n");
+            }
+        }while(cont!=false);
     }
 
     private void listProg() {
@@ -209,50 +239,91 @@ public class ProgrammeUI extends UI{
     }
     
     private void addTutGrpToProg(){
-        System.out.print("\n==================================================");
-        System.out.print("\n|                    Ex. RSD                     |");
-        System.out.print("\n==================================================");
-        System.out.print("\n");
-        System.out.print("Enter ProgID: ");
-        String progID = scanner.nextLine();
-        System.out.print("\n==================================================");
-        System.out.print("\n|                  Ex. Group 1                   |");
-        System.out.print("\n==================================================");
-        System.out.print("\n");
-        System.out.print("Enter Group: ");
-        String grpName = scanner.nextLine();
-        
-        control.addTutGrpToProg(grpName, progID);
+        boolean cont = true;
+        do{
+            System.out.print("\n==================================================");
+            System.out.print("\n|                    Ex. RSD                     |");
+            System.out.print("\n==================================================");
+            System.out.print("\n");
+            System.out.print("Enter ProgID: ");
+            String progID = scanner.nextLine();
+            System.out.print("\n==================================================");
+            System.out.print("\n|                  Ex. Group 1                   |");
+            System.out.print("\n==================================================");
+            System.out.print("\n");
+            System.out.print("Enter Group: ");
+            String grpName = scanner.nextLine();
+
+            control.addTutGrpToProg(grpName, progID);
+            
+            System.out.print("\nDo you want to add more group(s)? (Y/N): ");
+            String bool = scanner.nextLine().toUpperCase();
+            if("N".equals(bool)){
+                cont = false;
+            }
+            else if("Y".equals(bool)){
+            }
+            else{
+                System.out.print("\n==ERROR===========================================");
+                System.out.print("\n|                 Invalid input!                 |");
+                System.out.print("\n==================================================");
+                System.out.print("\n");
+            }
+        }while(cont!=false);
     }
          
     private void removeTutGrpFromProg(){
-        System.out.print("\n==================================================");
-        System.out.print("\n|                    Ex. RSD                     |");
-        System.out.print("\n==================================================");
-        System.out.print("\n");
-        System.out.print("Enter ProgID: ");
-        String progID = scanner.nextLine();
-        System.out.print("\n==================================================");
-        System.out.print("\n|                  Ex. Group 1                   |");
-        System.out.print("\n==================================================");
-        System.out.print("\n");
-        System.out.print("Enter Group: ");
-        String grpName = scanner.nextLine();
-        
-        control.removeTutGrpFromProg(grpName, progID);
+        boolean cont = true;
+        do{
+            System.out.print("\n==================================================");
+            System.out.print("\n|                    Ex. RSD                     |");
+            System.out.print("\n==================================================");
+            System.out.print("\n");
+            System.out.print("Enter ProgID: ");
+            String progID = scanner.nextLine();
+            System.out.print("\n==================================================");
+            System.out.print("\n|                  Ex. Group 1                   |");
+            System.out.print("\n==================================================");
+            System.out.print("\n");
+            System.out.print("Enter Group: ");
+            String grpName = scanner.nextLine();
+
+            control.removeTutGrpFromProg(grpName, progID);
+            
+            System.out.print("\nDo you want to remove more group(s)? (Y/N): ");
+            String bool = scanner.nextLine().toUpperCase();
+            if("N".equals(bool)){
+                cont = false;
+            }
+            else if("Y".equals(bool)){
+            }
+            else{
+                System.out.print("\n==ERROR===========================================");
+                System.out.print("\n|                 Invalid input!                 |");
+                System.out.print("\n==================================================");
+                System.out.print("\n");
+            }
+        }while(cont!=false);
     }
     
     private void listTutGrp(){
         System.out.print("\n==================================================");
+        System.out.print("\n|                    Ex. RSD                     |");
+        System.out.print("\n==================================================");
+        System.out.print("\n");
+        System.out.print("Enter ProgID: ");
+        String progID = scanner.nextLine();
+        System.out.print("\n==================================================");
         System.out.print("\n|               List of Groups:                  |");
         System.out.print("\n==================================================");
         System.out.print("\n");
-        control.listTutGrp();
+        
+        control.listTutGrp(progID);
     }
     
     private void genReport(){
         System.out.print("\n==================================================");
-        System.out.print("\n|               List of Groups:                  |");
+        System.out.print("\n|                    Report:                     |");
         System.out.print("\n==================================================");
         System.out.print("\n");
         control.genReport();

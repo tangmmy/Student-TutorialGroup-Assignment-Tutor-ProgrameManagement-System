@@ -6,16 +6,13 @@ package Control;
 
 /**
  *
- * @author acerc
+ * @author HoKianHou 22WMR04120 RSD2 Group 1
  */
 import ADT.LinkedList;
 import ADT.ListIterator;
 import Entity.Programme;
 import Entity.TutorialGrp;
 import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 
 public class ProgrammeControl {
     private LinkedList<Programme> programmeLists;
@@ -26,7 +23,8 @@ public class ProgrammeControl {
         this.programmeLists = new LinkedList<>();
         this.tutGrp = new LinkedList<>();
     }
-
+    
+    //Adding a New Programme
     public void addProg(String progName, String eduLvl) {
         String progID = genProgID(progName, eduLvl);
         if (progID != null) {
@@ -62,7 +60,8 @@ public class ProgrammeControl {
             }
         }
     }
-
+    
+    //Generating ProgrammeID through Prompted Programme Name and Education Level
     public String genProgID(String progName, String eduLvl) {
         String initials = getInitials(progName);
         if (eduLvl.equals("F") || eduLvl.equals("D") || eduLvl.equals("R")) {
@@ -73,25 +72,13 @@ public class ProgrammeControl {
         }
     }
 
+    //Getting the initials of Programme Name
     public String getInitials(String progName) {
         int idxLastWhitespace = progName.lastIndexOf(' ');
         return progName.substring(0, 1) + progName.substring(idxLastWhitespace + 1, idxLastWhitespace + 2);
     }
-
-    public String genEduName(String eduLvl){
-        String eduName;
-        if(eduLvl.equals("F")){
-            return eduName = "Foundation";
-        }
-        else if(eduLvl.equals("D")){
-            return eduName = "Diploma";
-        }
-        else if(eduLvl.equals("R")){
-            return eduName = "Degree";
-        }
-        else return eduName = null;
-    }
     
+    //Removing Programme
     public boolean removeProg(String progID) {
         Programme progToRemove = findProg(progID);
             if (progToRemove != null) {
@@ -109,6 +96,7 @@ public class ProgrammeControl {
         return false;
     }
     
+    //Finding Programme with Prompted Programme ID
     public Programme findProg(String progToFind) {
         ListIterator<Programme> iterator = programmeLists.listIterator();
         while(iterator.hasNext()){
@@ -121,6 +109,7 @@ public class ProgrammeControl {
         return null;
     }
     
+    //Amending Specified Programme, Changing ProgrammeName and Education Level
     public boolean amendProg(String progID, String eduLvl, String newProgName){
         Programme progToAmend = findProg(progID);
         
@@ -135,16 +124,18 @@ public class ProgrammeControl {
         return false;
     }
     
+    //Listing all the Existing Programme
     public void listProg(){
         ListIterator<Programme> iterator = programmeLists.listIterator();
-       
+        int i=0;
         while(iterator.hasNext()){
             Programme progID = iterator.next();
-            int i=0; i++;
+            i++;
             System.out.println(i + ". " + progID);
         }
     }
     
+    //Adding a Tutorial Group to A Programme
     public void addTutGrpToProg(String grpName, String progID) {
     Programme prog = null; // Initialize prog to null
     ListIterator<Programme> iterator = programmeLists.listIterator();
@@ -161,38 +152,27 @@ public class ProgrammeControl {
             String grp = grpName;
             TutorialGrp newTutGrp = new TutorialGrp(grp); // Initialize tutGrp
             prog.addTutorialGroup(newTutGrp); // Add newTutGrp to the Programme's tutGrp field
-            System.out.println("\nTutorial Group created successfully.");
+            System.out.print("\n==INFO============================================");
+            System.out.print("\n|       Tutorial Group created successfully.      |");
+            System.out.print("\n==================================================");
+            System.out.print("\n");
         } else {
-            System.out.println("\nProgram with ID " + progID + " not found.");
+            System.out.print("\n==ERROR===========================================");
+            System.out.print("\n|    Program with ProgrammeID: " + progID + " not found.    |");
+            System.out.print("\n==================================================");
+            System.out.print("\n");
         }
     }
     
+    //Remove a Tutorial Group from A Programme
     public void removeTutGrpFromProg(String grpName, String progID) {
-    //boolean programFound = false; // Flag to check if the program was found
     Programme prog = null;
     ListIterator<Programme> iterator = programmeLists.listIterator();
     
     while (iterator.hasNext()) {
         Programme currentProg = iterator.next();
-
-        //String str = prog.getProgID();
-        System.out.println(progID);
         if (currentProg.getProgID().equals(progID)) {
-            //programFound = true; // Program found, set the flag to true
             prog = currentProg;
-            System.out.println("?");
-            /*ListIterator<TutorialGrp> Titerator = tutGrp.listIterator();
-            System.out.println(Titerator);
-            while (Titerator.hasNext()) {
-                TutorialGrp grpName = Titerator.next();
-                String grp = grpName.getGrpName();
-                System.out.println(grp);
-                if (grp.equals(tutToFind)) {
-                    Titerator.remove(); // Remove the tutorial group
-                    System.out.println("Deleted");
-                    break; // Exit the inner loop since the group was found and removed
-                }
-            }*/
         }
     } 
     
@@ -200,28 +180,53 @@ public class ProgrammeControl {
             String grp = grpName;
             TutorialGrp grpToRemove = new TutorialGrp(grp);
             prog.removeTutorialGroup(grpToRemove);
-            System.out.println("Deleted");
+            System.out.print("\n==INFO============================================");
+            System.out.print("\n|      Tutorial Group deleted successfully.      |");
+            System.out.print("\n==================================================");
+            System.out.print("\n");
     }
     else{
-        System.out.println("Program not found");        
+        System.out.print("\n==ERROR===========================================");
+        System.out.print("\n|           Tutorial Group not found.            |");
+        System.out.print("\n==================================================");
+        System.out.print("\n");      
     }
 }
 
-    public void listTutGrp() {
+    //List Existing Tutorial Groups
+    public void listTutGrp(String progID) {
     int i = 0;
     ListIterator<Programme> progIterator = programmeLists.listIterator();
-    
+    Programme prog = null;
     while(progIterator.hasNext()){
-        Programme prog = progIterator.next();
+        Programme currentProg = progIterator.next();
+        if (currentProg.getProgID().equals(progID)) {
+            prog = currentProg;
+        }
+        
         ListIterator<TutorialGrp> iterator = prog.getTutGrp().listIterator();
         
         while(iterator.hasNext()){
             TutorialGrp grpName = iterator.next();
-            
             i++;
-            System.out.println(i + "." + grpName + ", " + prog);
+            System.out.println(i + "." + grpName);
+        }
+    }
+}    
+    //Generate Report
+    public void genReport(){
+        int i = 0;
+        ListIterator<Programme> progIterator = programmeLists.listIterator();
+    
+        while(progIterator.hasNext()){
+            Programme prog = progIterator.next();
+            ListIterator<TutorialGrp> iterator = prog.getTutGrp().listIterator();
+            while(iterator.hasNext()){
+                TutorialGrp grpName = iterator.next();
+                i++;
+                System.out.println(i + ". " + prog +  ", " +grpName);
+            }
         }
     }
 }
 
-}
