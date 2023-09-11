@@ -38,6 +38,12 @@ public class TutorialGrp implements Comparable<TutorialGrp>{
     public void setGrpName(String grpName) {
         this.grpName = grpName;
     }
+
+    @Override
+    public String toString() {
+        return "Group " + grpName; 
+    }
+ 
     @Override
     public int compareTo(TutorialGrp T){
         return this.grpName-T.grpName;
