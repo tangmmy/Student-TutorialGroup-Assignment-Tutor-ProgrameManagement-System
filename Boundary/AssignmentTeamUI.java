@@ -1,5 +1,4 @@
 package Boundary;
-
 //@author YeohYaoWen
 
 import Control.AssignmentTeamControl; 
@@ -96,8 +95,8 @@ public class AssignmentTeamUI {
 
         System.out.print("Enter new team name: ");
         String newTeamName = scanner.nextLine();
-
-        if (control.amendAssignmentTeamDetails(assignmentId, newTeamName)) {  // Invoking the amendAssignmentTeamDetails method
+        // Invoking the amendAssignmentTeamDetails method
+        if (control.amendAssignmentTeamDetails(assignmentId, newTeamName)) { 
             System.out.println("\nTeam details amended successfully.");
         } else {
             System.out.println("\nTeam not found.");
@@ -139,8 +138,8 @@ public class AssignmentTeamUI {
         for (int i = 0; i < count; i++) {
             actualIdsToRemove[i] = studentIdsToRemove[i];
         }
-
-        if (control.removeStudentsFromTeam(assignmentId, actualIdsToRemove)) {  // Invoking the removeStudentsFromTeam method
+        // Invoking the removeStudentsFromTeam method
+        if (control.removeStudentsFromTeam(assignmentId, actualIdsToRemove)) {  
             System.out.println("\nStudents removed successfully.");
         } else {
             System.out.println("\nAn error occurred or team not found.");
@@ -154,5 +153,4 @@ public class AssignmentTeamUI {
         control.listStudentsInTeam(assignmentId);  // Invoking the listStudentsInTeam method
     }
 
-    
 }
