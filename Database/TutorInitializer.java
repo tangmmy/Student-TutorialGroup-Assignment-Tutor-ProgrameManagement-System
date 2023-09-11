@@ -1,7 +1,7 @@
 
 package Database;
 
-import Adt.*;
+import ADT.*;
 import Entity.*;
 /**
  *
