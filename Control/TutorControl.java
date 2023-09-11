@@ -1,7 +1,7 @@
 
 package Control;
 
-import Adt.*;
+import ADT.*;
 import Entity.*;
 import java.util.Scanner;
 import Boundary.*;
