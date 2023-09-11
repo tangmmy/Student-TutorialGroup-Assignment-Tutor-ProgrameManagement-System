@@ -1,7 +1,7 @@
 
 package Entity;
 
-import Adt.*;
+import ADT.*;
 import java.io.Serializable;
 import java.util.Random;
 import java.util.UUID;
